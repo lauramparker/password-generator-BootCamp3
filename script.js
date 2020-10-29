@@ -1,5 +1,5 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate").addEventListener("click", writePassword);
+var generateBtn = document.querySelector("#generate");
 
 
 // Write password to the #password input
@@ -11,6 +11,9 @@ function writePassword() {
 
 }
 
+// Add event listenet to generate button
+generateBtn.addEventListener("click", writePassword);
+
 //Create variables with all character options (related data); assign values to object keys. Use strings and parse strings at end of script
 
 
@@ -20,7 +23,7 @@ function writePassword() {
     var special= ["!","@","#","$","%","^","&","*","(",")","?","~","<",">","+","="]
     var finalChar= []
 
-
+//function generatePassword() {// START generatePassword function
 
 //Prompt user to enter password length
 
@@ -77,31 +80,32 @@ var passwordLength = prompt ("Enter a number between (or including) 8 and 128");
 
 //Generate Password with random mix of selected characters
 
-//generatePassword function?
-        alert("Random Password is ready.");
+
+        alert("Your  Password is ready.")
+
 
     //for (let i=0; i < passwordLength; ++i) {
       //var randomize = Math.floor(Math.random() * Math.floor(finalChar.length));
       //password.push(finalChar [randomize])
   
-function randomInt(passwordLength) {
-  return Math.floor(Math.random() * (passwordLength + 1)); //Includes the password length with +1
-  }       
+    function randomInt(passwordLength) {
+      return Math.floor(Math.random() * (passwordLength + 1)); //Includes the password length with +1
+      }       
+          
+    function random(choices) {
+      var index = randomInt(choices.length);
+      return choices [index]
+    }   
+
+    var string = "";
+
+    for (var i = 0; i<= passwordLength; i++) {
+      string += random(finalChar);
+    }
+
+      alert("New Password = " + (string));
       
-function random(choices) {
-  var index = randomInt(choices.length)
-  return choices [index]
-}   
-
-var string = "";
-
-for (var i = 0; i<= passwordLength; i++) {
-  string += random(finalChar);
-};
-
-alert(string);
-  
-
-   
-
+    
+    
+//}  // END generatePassword function  
 
