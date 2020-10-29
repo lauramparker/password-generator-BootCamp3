@@ -4,15 +4,14 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  //var password = generatePassword();
+  //var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+ // passwordText.value = password;
 
-}
 
-// Add event listenet to generate button
-generateBtn.addEventListener("click", writePassword);
+
+
 
 //Create variables with all character options (related data); assign values to object keys. Use strings and parse strings at end of script
 
@@ -107,5 +106,8 @@ var passwordLength = prompt ("Enter a number between (or including) 8 and 128");
       
     
     
-//}  // END generatePassword function  
+}  // END writePassword function  
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
