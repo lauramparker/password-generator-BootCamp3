@@ -2,10 +2,19 @@
 var generateBtn = document.querySelector("#generate").addEventListener("click", writePassword);
 
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
 //Create variables with all character options (related data); assign values to object keys. Use strings and parse strings at end of script
 
 
-    var uppercase= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]  //NEED TO FIX into "a", "b", "c"
+    var uppercase= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"] 
     var lowercase= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     var numeric= ["0","1","2","3","4","5","6","7","8","9"]
     var special= ["!","@","#","$","%","^","&","*","(",")","?","~","<",">","+","="]
@@ -15,12 +24,13 @@ var generateBtn = document.querySelector("#generate").addEventListener("click", 
 
 //Prompt user to enter password length
 
-var passwordLength = prompt ("Enter a number between 8 and 128");
+var passwordLength = prompt ("Enter a number between (or including) 8 and 128");
     if (passwordLength >= 8 && passwordLength <= 128) {  //check for number between 8-128
-        alert ("Your password will have" + passwordLength + "characters.");
+      passwordLength = Math.floor(passwordLength);  //truncates figure to whole number in the event the user enters a decimal
+      alert ("Your password will have " + passwordLength + " characters.");
     }
       else {
-        var passwordLength = prompt ("Enter a WHOLE NUMBER between 8 and 128");
+        var passwordLength = prompt ("Enter a WHOLE NUMBER BETWEEN (or including) 8 and 128");
     }
 
 
@@ -62,24 +72,36 @@ var passwordLength = prompt ("Enter a number between 8 and 128");
           else {var finalChar = [].concat(this.finalChar,special);
         }
   
-        console.log(this.finalChar);
+        console.log(this.finalChar); //console.log for Dev Tools to validate above code
 
 
 //Generate Password with random mix of selected characters
 
+//generatePassword function?
+        alert("Random Password is ready.");
 
-    for (let i=0; i < passwordLength; ++i) {
-      var randomize = Math.floor(Math.random() * Math.floor(finalChar.length));
-      passwordRec.push(finalChar [randomize])
-    }
+    //for (let i=0; i < passwordLength; ++i) {
+      //var randomize = Math.floor(Math.random() * Math.floor(finalChar.length));
+      //password.push(finalChar [randomize])
+  
+function randomInt(passwordLength) {
+  return Math.floor(Math.random() * (passwordLength + 1)); //Includes the password length with +1
+  }       
+      
+function random(choices) {
+  var index = randomInt(choices.length)
+  return choices [index]
+}   
+
+var string = "";
+
+for (var i = 0; i<= passwordLength; i++) {
+  string += random(finalChar);
+};
+
+alert(string);
+  
+
+   
 
 
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
