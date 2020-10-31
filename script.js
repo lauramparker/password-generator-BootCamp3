@@ -12,9 +12,7 @@ var finalChar= []
   // Write password to the #password input
 function writePassword() {
 
-  //var password = generatePassword();
-  //var passwordText = document.querySelector("#password"); //this attaches to grey shaded box
-  //passwordText.value = password;
+
 
 //Prompt user to enter password length
 
@@ -95,11 +93,16 @@ var passwordLength = prompt ("Enter a number between (or including) 8 and 128");
     
       alert("New Password = " + (string));  
 
-}
+};
  // Add event listener to generate button
 
  generateBtn.addEventListener("click", writePassword);
 
+
+//Code to write password to grey shaded box (not required in user requirements)
+        //var password = generatePassword();
+        //var passwordText = document.querySelector("#password"); //this attaches to grey shaded box
+        //passwordText.value = password;
 
 
 
